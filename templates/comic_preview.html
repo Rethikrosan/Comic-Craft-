@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ title }} — ComicCraft</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<main class="shell">
+<header class="page-head"><div><span class="badge">YOUR COMIC</span><h1>{{ title }}</h1></div><a class="secondary" href="/">Create another</a></header>
+<section class="comic-grid">
+{% for panel in panels %}
+<article class="panel card">
+<div class="panel-head"><span>Panel {{ panel.panel_number }}</span><h2>{{ panel.title }}</h2></div>
+<img src="{{ panel.image_url }}" alt="Illustration for {{ panel.title }}" loading="lazy">
+<p class="scene">{{ panel.scene_description }}</p>
+<div class="story">
+<strong>Caption</strong><p>{{ panel.caption }}</p>
+<strong>Narration</strong><p>{{ panel.narration }}</p>
+{% if panel.dialogue %}<strong>Dialogue</strong><p class="dialogue">{{ panel.dialogue }}</p>{% endif %}
+</div>
+<details><summary>Image prompt</summary><p class="prompt">{{ panel.image_prompt }}</p></details>
+</article>
+{% endfor %}
+</section>
+<section class="card download"><h2>Your comic is ready.</h2><p>Download the complete comic as a multi-page PDF.</p>
+<a class="primary button-link" href="{{ pdf_url }}">Download Your Comic as PDF</a>
+<a class="secondary button-link" href="/export-success">View export confirmation</a></section>
+</main>
+</body>
+</html>

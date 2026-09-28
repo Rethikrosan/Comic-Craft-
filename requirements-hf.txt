@@ -1,0 +1,12 @@
+# Use this smaller image stack if IMAGE_BACKEND=hf.
+# Gemini/text and FastAPI dependencies still come from requirements.txt.
+fastapi>=0.116,<1
+uvicorn[standard]>=0.35,<1
+jinja2>=3.1,<4
+python-multipart>=0.0.20,<1
+pydantic>=2.11,<3
+pydantic-settings>=2.10,<3
+google-genai>=1.40,<2
+fpdf2>=2.8,<3
+Pillow>=11,<12
+requests>=2.32,<3

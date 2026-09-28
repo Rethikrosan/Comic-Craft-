@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ComicCraft — AI Comic Story Creator</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<main class="shell hero">
+<section class="card intro">
+<span class="badge">AI COMIC CREATOR</span>
+<h1>Turn an idea into a comic.</h1>
+<p>Describe your story, choose the mood and art style, and ComicCraft builds a five-panel story with illustrations and a downloadable PDF.</p>
+</section>
+{% if error %}<div class="error">{{ error }}</div>{% endif %}
+<form class="card form-card" action="/generate" method="post" id="comic-form">
+<label>Story Prompt<textarea name="story_prompt" required minlength="3" maxlength="2000" placeholder="A brave fox discovers a glowing doorway in an enchanted forest..."></textarea></label>
+<div class="grid">
+<label>Main Character Name<input name="character_name" required placeholder="Arin"></label>
+<label>Setting<select name="setting"><option>Enchanted forest</option><option>Futuristic city</option><option>Space station</option><option>School campus</option><option>Ancient kingdom</option></select></label>
+</div>
+<div class="grid">
+<label>Story Tone<select name="tone"><option>Light-hearted</option><option>Dramatic</option><option>Poetic</option><option>Funny</option><option>Adventurous</option></select></label>
+<label>Art Style<select name="art_style"><option>Comic book</option><option>Anime</option><option>Pixel art</option><option>Realistic illustration</option><option>Watercolor graphic novel</option></select></label>
+</div>
+<button class="primary" type="submit" id="generate-btn">Create My Comic</button>
+<p class="hint">Generation can take a few minutes when real AI image generation is enabled.</p>
+</form>
+</main>
+<script src="/static/js/app.js"></script>
+</body>
+</html>
